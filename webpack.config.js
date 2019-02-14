@@ -20,7 +20,10 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)/,
@@ -46,7 +49,7 @@ module.exports = {
       template: 'index.html',
       inject: true
     }),
-    new CleanWebpackPlugin(['dist'])
-    // new webpack.optimize.UglifyJsPlugin()
+    new CleanWebpackPlugin(['dist']),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 }
